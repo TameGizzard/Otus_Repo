@@ -3,6 +3,11 @@
 Функции и структуры данных
 """
 
+# filter types
+ODD = "odd"
+EVEN = "even"
+PRIME = "prime"
+
 
 def power_numbers(*args):
     """
@@ -14,14 +19,8 @@ def power_numbers(*args):
     return [number ** 2 
             for number in args]
 
+# print(power_numbers(1, 2, 5, 7))
 
-print(power_numbers(1, 2, 5, 7))
-
-
-# filter types
-ODD = "odd"
-EVEN = "even"
-PRIME = "prime"
 
 def is_prime(num):
     if num < 2:
@@ -49,7 +48,6 @@ def filter_numbers(numbers, filter_type):
     elif filter_type == PRIME:
         return list(filter(is_prime, numbers))
         
-
 # print(filter_numbers([1, 2, 3], ODD))
 # print(filter_numbers([2, 1, 3, 5, 4], EVEN))
 # print(filter_numbers([1,2,3,4,5,6,7], PRIME))
