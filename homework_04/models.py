@@ -3,7 +3,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker, relationship
 
-DATABASE_URL = "postgresql+asyncpg://user:password@localhost:5432/blog_db"
+PG_CONN_URI = "postgresql+asyncpg://postgres:password@localhost/postgres"
 
 Base = declarative_base()
 
@@ -29,7 +29,7 @@ class Post(Base):
     user = relationship("User", back_populates="posts")
 
 
-engine = create_async_engine(DATABASE_URL, echo=False)
+engine = create_async_engine(PG_CONN_URI, echo=False)
 
 Session = sessionmaker(
     engine, expire_on_commit=False, class_=AsyncSession
